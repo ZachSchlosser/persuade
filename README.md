@@ -1,18 +1,18 @@
 # persuade
 
-A [Claude Code](https://docs.claude.com/en/docs/claude-code) skill that rewrites any text to be maximally persuasive while keeping every claim factually accurate.
+A [Claude Code](https://docs.claude.com/en/docs/claude-code) skill that enhances any text's persuasiveness while preserving its structure, citations, voice, and length — and keeping every claim factually accurate.
 
 ## What it does
 
 Give it an essay, op-ed, grant proposal, or any argumentative prose. It will:
 
-1. **Generate three independent persuasive rewrites** of your text.
-2. **Rank-order them head-to-head** to pick the most persuasive candidate.
-3. **Fact-check every factual claim** in the winner using web search + the Consensus academic database.
-4. **Replace any inaccurate claim** with the strongest accurate replacement available — no hedging, no flags, no silent removals. The output is always fully accurate.
-5. **Re-verify** the corrected text and output the final version with a change report.
+1. **Generate three enhanced variants** that apply persuasion techniques *surgically* — tightening hedging, sharpening topic sentences, making abstract claims concrete, strengthening transitions, adding call-to-action. The document's structure, citations, voice, and length are preserved.
+2. **Rank-order them head-to-head** to pick the most persuasive candidate (disqualifying any that violate the preservation contract).
+3. **Fact-check only the NEW claims** the skill added (your original claims are yours and aren't modified or re-verified) using web search + the Consensus academic database.
+4. **Replace any inaccurate new claim** with the strongest accurate replacement available, or remove the addition if no accurate replacement exists.
+5. **Verify preservation** — explicit checks that all citations, sections, length, voice, and original claims are intact before output.
 
-The result: text that hits as hard as possible, where every claim survives scrutiny.
+The result: your text, recognizably yours, with the rhetoric sharpened rather than replaced.
 
 ## Why it works
 
@@ -28,9 +28,15 @@ The skill's prompt design is grounded in recent empirical research on what makes
 
 - **The persuasion-accuracy trade-off is real and must be actively managed.** Every lever that increases persuasiveness also tends to degrade factual accuracy. This skill front-loads accuracy during generation and back-ends it with search-augmented fact-checking (validated at r = 0.84 against human fact-checkers in the Hackenburg et al. pipeline).
 
+### Architecture choice: enhance, don't rewrite
+
+The skill is framed as **enhancement, not rewriting**. Earlier versions treated the input as raw material to be restructured for maximum persuasion — which destroyed citations, shortened the text, and drifted from the author's voice. The current design enforces a hard **Preservation Contract** (citations verbatim, structure intact, length floor, voice preserved, original claims untouchable) and scopes persuasion techniques to *surgical, in-place edits* plus within-section paragraph reorganization and added strengthening sentences.
+
+This matters because the persuasion research the skill draws on studied *conversational* AI — short dialogues where density and concision win. Applying those heuristics to cited academic prose is a category error: in scholarly work, the citation apparatus and qualifying context *are* the persuasive content. The skill now detects and respects that.
+
 ### Architecture choice: explore-then-commit
 
-The skill deliberately separates generation from verification. It produces three candidates optimized purely for persuasion, picks the winner, *then* fact-checks. This prevents the two objectives from fighting each other inside a loop — a pattern motivated by the documented persuasion-accuracy tension.
+Within the enhancement scope, the skill still separates generation from verification. It produces three enhanced variants, picks the winner, *then* fact-checks only the newly added claims. This prevents the persuasion-accuracy tension from oscillating inside a loop.
 
 ## Install
 
