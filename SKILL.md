@@ -62,29 +62,37 @@ Write each variant to a working file:
 
 ### Step 3 — Rank-order the three candidates
 
-Read all three variants. **You must produce the scorecard table below before selecting a winner — do not summarize, do not justify, produce the table first.** A one-paragraph rationale without the table is a failure to follow this step.
+**HARD GATE: You may not proceed to Step 4 until `/tmp/persuade_scorecard.md` exists and contains both completed tables with every cell filled.** Writing a prose summary instead of creating and reading back the file is a failure to follow this step. The file is the checkpoint — the model must literally write it, read it, and confirm it before advancing.
 
-**3a. Preservation check.** For each variant (A, B, C), check every item in the Preservation Contract and mark PASS or FAIL. If any item is FAIL, the variant is DISQUALIFIED and does not advance. State the specific violation.
+**3a. Write the preservation check table to `/tmp/persuade_scorecard.md`.** Use the Write tool. For each variant (A, B, C), check every Preservation Contract item, fill every cell with PASS or FAIL plus a one-line note, and mark the verdict. Any FAIL = DISQUALIFIED. The table must look like this (every cell filled):
 
 | Variant | Citations verbatim? | Sections intact? | Length ≥ input? | Voice preserved? | Original claims kept? | Verdict |
 |---|---|---|---|---|---|---|
-| A | | | | | | PASS / DISQUALIFIED |
-| B | | | | | | PASS / DISQUALIFIED |
-| C | | | | | | PASS / DISQUALIFIED |
+| A | PASS — [note] | PASS — [note] | PASS — [note] | PASS — [note] | PASS — [note] | PASS / DISQUALIFIED |
+| B | [fill] | [fill] | [fill] | [fill] | [fill] | PASS / DISQUALIFIED |
+| C | [fill] | [fill] | [fill] | [fill] | [fill] | PASS / DISQUALIFIED |
 
-**3b. Rubric scorecard.** For each non-disqualified variant, rank 1st/2nd/3rd on every dimension. Do not collapse dimensions or skip any. Every cell must have a rank.
+**3b. Append the rubric scorecard to the same file.** Use the Edit tool to append. For each non-disqualified variant, rank 1st/2nd/3rd on every dimension. Every cell must contain a rank (1, 2, or 3). No empty cells, no ties, no "n/a":
 
 | Dimension | A | B | C |
 |---|---|---|---|
-| Persuasive sharpening (hedging→confidence, topic sentences, abstractions→concrete) | | | |
-| Call-to-action strength (concrete next step, added not replacing) | | | |
-| Logical flow (transitions, within-section ordering) | | | |
-| Factual discipline (no fabrication, no over-reaching) | | | |
-| Preservation fidelity (higher = closer to source) | | | |
+| Persuasive sharpening | [1/2/3] | [1/2/3] | [1/2/3] |
+| Call-to-action strength | [1/2/3] | [1/2/3] | [1/2/3] |
+| Logical flow | [1/2/3] | [1/2/3] | [1/2/3] |
+| Factual discipline | [1/2/3] | [1/2/3] | [1/2/3] |
+| Preservation fidelity | [1/2/3] | [1/2/3] | [1/2/3] |
 
-**3c. Aggregate.** Count 1st-place finishes per variant. The variant with the most 1st-place finishes wins. On a tie, the tiebreaker is: highest preservation fidelity, then highest factual discipline.
+**3c. Read the file back and verify.** Use the Read tool on `/tmp/persuade_scorecard.md`. Before proceeding, confirm:
+- Both tables are present in the file
+- Every cell is filled (no blanks, no placeholder text)
+- At least one variant is not DISQUALIFIED
+- The rubric table contains only ranks (1, 2, or 3) in each cell
 
-**3d. Record the winner by name and paste the completed scorecard into the final report (Step 9).** Do not proceed without the table.
+If any check fails, rewrite the file with the missing content and re-read before proceeding.
+
+**3d. Aggregate and record the winner.** Count 1st-place finishes per non-disqualified variant across the five rubric dimensions. The variant with the most 1st-place finishes wins. Tiebreaker: highest preservation fidelity rank, then highest factual discipline rank.
+
+**3e. Note the winner by name.** Append a one-line winner declaration to the scorecard file: "WINNER: Variant [X] — [N] first-place finishes." You may now proceed to Step 4.
 
 ### Step 4 — Extract and fact-check the winner's NEW claims
 
@@ -133,7 +141,7 @@ Write the final, verified version to:
 Print to the user:
 1. **The final version** (full text).
 2. A brief **change report**:
-   - The **completed scorecard tables** from Step 3 (preservation check + rubric scorecard). No table = report is incomplete.
+   - The **contents of `/tmp/persuade_scorecard.md`** (both tables, reproduced in full). If the report does not contain both filled tables, the skill failed Step 3.
    - Which variant (A/B/C) won and the 1st-place count that decided it.
    - Number of NEW claims fact-checked, how many accurate vs. replaced.
    - Each replacement made (original claim → replacement → source).
@@ -146,33 +154,48 @@ Print to the user:
 
 These are the techniques to apply *surgically* during Step 2. They modify prose in place; they do not license restructuring or compression.
 
+### Step 2 prelude: Assess baseline density
+
+Before writing the three variants, estimate how information-dense the source already is. Scan each substantive paragraph and count (roughly) how many concrete, verifiable factual claims it contains — statistics, dates, named studies, quantified findings, cited assertions. Then classify the source:
+
+- **Sparse:** many paragraphs make arguments without supporting claims, or rest on assertion alone. Average fewer than ~1 concrete claim per paragraph.
+- **Moderate:** most paragraphs have at least one supporting claim, but some arguments are underspecified. Average ~1–2 claims per paragraph.
+- **Dense:** most paragraphs carry multiple cited claims. Average 2+ claims per paragraph.
+
+Record this classification. It governs how aggressively principles 3 and 4 (below) are applied:
+- **Sparse → Tier 2 (add new claims) is the primary lever.** Add specific, cited supporting claims to underspecified paragraphs. This is where the largest persuasion gains are available.
+- **Moderate → apply both Tier 1 (reframe existing) and Tier 2 (add new) selectively.**
+- **Dense → Tier 1 (reframe existing) is the primary lever.** Adding more claims has diminishing returns at high baseline density; focus on making existing claims land harder through concreteness and framing.
+
 ### Apply where they strengthen
 
 1. **Tighten hedging into confident framing.** "It seems possible that X may contribute to Y" → "X contributes to Y." (Only when the underlying claim is accurate and the author's evidence supports the stronger form.)
 
 2. **Sharpen topic sentences.** If a paragraph opens with context or throat-clearing, add or strengthen a topic sentence that states the paragraph's point directly.
 
-3. **Make abstract claims concrete.** "Certain cognitive activities are essential for health" → "Social connection, cultural transmission, and shared sensemaking are essential for health — social connection rivals smoking as a mortality risk factor (Holt-Lunstad, 2024)." Add specifics, numbers, named entities — drawing on claims already in the text or its citations.
+3. **Make abstract claims concrete — Tier 1 (always apply).** "Certain cognitive activities are essential for health" → "Social connection, cultural transmission, and shared sensemaking are essential for health — social connection rivals smoking as a mortality risk factor (Holt-Lunstad, 2024)." Add specifics, numbers, named entities — drawing on claims already in the text or its citations. This tightens existing material; it does not add new claims.
 
-4. **Strengthen transitions.** Replace "Also," "Furthermore," or implicit transitions with explicit logical connectors: "The reason this matters is…" or "This finding compounds a second problem…"
+4. **Add new supporting claims where the argument is thin — Tier 2 (apply when source is Sparse or Moderate).** Where a paragraph asserts something important without a concrete supporting fact, ADD a specific, verifiable claim with a citation. Example: if the source says "AI is already changing how people communicate" without a study attached, add "Hohenstein et al. (2023) found AI-mediated communication measurably alters language complexity and social relationships within weeks." These additions will be fact-checked in Step 4 — only add claims you are confident are accurate. Target: bring sparse paragraphs up to at least one concrete cited claim each.
 
-5. **Add a call-to-action where appropriate.** If the document ends weakly or without specifying next steps, add (do not replace) a concrete closing sentence about what the reader should do. Preserve any existing conclusion.
+5. **Strengthen transitions.** Replace "Also," "Furthermore," or implicit transitions with explicit logical connectors: "The reason this matters is…" or "This finding compounds a second problem…"
 
-6. **Frame as collaborative problem-solving.** Where the text opposes a view, reframe opposition as joint problem-solving: not "X is wrong" but "X misses a piece of the picture — specifically…"
+6. **Add a call-to-action.** This is mandatory, not optional. The document must end with (or gain, if absent) a concrete, specific next step for the reader — what to fund, what to read, what to decide, what to do. Add this as a closing sentence or short paragraph; do not replace the author's existing conclusion. If the source already has a call-to-action, sharpen it to be more specific and time-bound.
+
+7. **Frame as collaborative problem-solving.** Where the text opposes a view, reframe opposition as joint problem-solving: not "X is wrong" but "X misses a piece of the picture — specifically…"
 
 ### Avoid
 
-7. **No rhetorical aggression.** Do not attack, mock, or demolish opposing views. Make the positive case.
+8. **No rhetorical aggression.** Do not attack, mock, or demolish opposing views. Make the positive case.
 
-8. **No hedging that weakens the core claim.** (But DO preserve scholarly hedging that reflects genuine uncertainty — "evidence suggests," "the mechanism remains under study." Accuracy beats confidence.)
+9. **No hedging that weakens the core claim.** (But DO preserve scholarly hedging that reflects genuine uncertainty — "evidence suggests," "the mechanism remains under study." Accuracy beats confidence.)
 
-9. **No compression of scholarly apparatus.** Full references stay full. DOIs stay. PMIDs stay. Author lists stay. Context that frames a citation stays.
+10. **No compression of scholarly apparatus.** Full references stay full. DOIs stay. PMIDs stay. Author lists stay. Context that frames a citation stays.
 
-10. **No voice drift.** Don't convert academic prose into marketing copy, or a research outline into a narrative essay. Match the author's existing register sentence by sentence.
+11. **No voice drift.** Don't convert academic prose into marketing copy, or a research outline into a narrative essay. Match the author's existing register sentence by sentence.
 
 ### Factual discipline
 
-11. **Only ADD claims you are confident are factual.** If an enhancement would require a factual claim you can't verify, either omit the enhancement or phrase it as a question/hypothesis. The fact-check step will catch what slips through, but front-loading accuracy reduces the correction burden.
+12. **Only ADD claims you are confident are factual.** If an enhancement would require a factual claim you can't verify, either omit the enhancement or phrase it as a question/hypothesis. The fact-check step will catch what slips through, but front-loading accuracy reduces the correction burden. Tier 2 additions (principle 4) are the highest-risk for fabrication — apply extra scrutiny to your own new claims.
 
 ---
 
