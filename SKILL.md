@@ -62,9 +62,29 @@ Write each variant to a working file:
 
 ### Step 3 — Rank-order the three candidates
 
-Read all three variants in a single comparison pass. Rank them from most to least persuasive using the **Scoring Rubric** (below), subject to the Preservation Contract — any variant that violates the contract is disqualified.
+Read all three variants. **You must produce the scorecard table below before selecting a winner — do not summarize, do not justify, produce the table first.** A one-paragraph rationale without the table is a failure to follow this step.
 
-Record the winner. Only the winner moves to fact-checking.
+**3a. Preservation check.** For each variant (A, B, C), check every item in the Preservation Contract and mark PASS or FAIL. If any item is FAIL, the variant is DISQUALIFIED and does not advance. State the specific violation.
+
+| Variant | Citations verbatim? | Sections intact? | Length ≥ input? | Voice preserved? | Original claims kept? | Verdict |
+|---|---|---|---|---|---|---|
+| A | | | | | | PASS / DISQUALIFIED |
+| B | | | | | | PASS / DISQUALIFIED |
+| C | | | | | | PASS / DISQUALIFIED |
+
+**3b. Rubric scorecard.** For each non-disqualified variant, rank 1st/2nd/3rd on every dimension. Do not collapse dimensions or skip any. Every cell must have a rank.
+
+| Dimension | A | B | C |
+|---|---|---|---|
+| Persuasive sharpening (hedging→confidence, topic sentences, abstractions→concrete) | | | |
+| Call-to-action strength (concrete next step, added not replacing) | | | |
+| Logical flow (transitions, within-section ordering) | | | |
+| Factual discipline (no fabrication, no over-reaching) | | | |
+| Preservation fidelity (higher = closer to source) | | | |
+
+**3c. Aggregate.** Count 1st-place finishes per variant. The variant with the most 1st-place finishes wins. On a tie, the tiebreaker is: highest preservation fidelity, then highest factual discipline.
+
+**3d. Record the winner by name and paste the completed scorecard into the final report (Step 9).** Do not proceed without the table.
 
 ### Step 4 — Extract and fact-check the winner's NEW claims
 
@@ -113,10 +133,11 @@ Write the final, verified version to:
 Print to the user:
 1. **The final version** (full text).
 2. A brief **change report**:
-   - Which variant (A/B/C) won and why.
+   - The **completed scorecard tables** from Step 3 (preservation check + rubric scorecard). No table = report is incomplete.
+   - Which variant (A/B/C) won and the 1st-place count that decided it.
    - Number of NEW claims fact-checked, how many accurate vs. replaced.
    - Each replacement made (original claim → replacement → source).
-   - Confirmation that all Preservation Contract checks passed.
+   - Confirmation that all Preservation Contract checks passed (Step 7).
    - Any concerns about the author's original claims (flagged, not modified).
 
 ---
@@ -155,9 +176,9 @@ These are the techniques to apply *surgically* during Step 2. They modify prose 
 
 ---
 
-## Scoring Rubric
+## Scoring Rubric (dimension definitions for Step 3)
 
-When comparing the three variants (Step 3), rank them relatively (1st, 2nd, 3rd) on each dimension, then pick an overall winner. Do not produce absolute numeric scores. **Disqualify any variant that violates the Preservation Contract.**
+Step 3 requires you to fill the scorecard tables. These are the definitions for each dimension. Rank 1st/2nd/3rd — no numeric scores.
 
 | Dimension | What to look for |
 |---|---|
@@ -165,6 +186,6 @@ When comparing the three variants (Step 3), rank them relatively (1st, 2nd, 3rd)
 | **Call-to-action** | Did the ending gain a concrete next step (added, not replacing)? |
 | **Logical flow** | Are transitions and within-section ordering stronger? |
 | **Factual discipline** | Did enhancements avoid fabricating or over-reaching? |
-| **Preservation** | Are all citations, sections, length, voice, and original claims intact? (If not → disqualify.) |
+| **Preservation fidelity** | How closely does the variant match the source's citations, sections, length, voice, and original claims? (Higher = closer to source.) |
 
-**Tiebreaker:** When two variants are close, prefer the one with higher preservation fidelity and higher factual discipline.
+**Aggregate rule:** The variant with the most 1st-place finishes across dimensions wins. On a tie, the tiebreaker is: highest preservation fidelity, then highest factual discipline.
