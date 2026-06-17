@@ -24,7 +24,7 @@ The skill's prompt design is grounded in recent empirical research on what makes
 
 - **Semantic density (information per token) improves accuracy by +8.4 pp** with zero added tokens or latency. Concrete nouns, active verbs, and quantification beat verbose abstractions. — [Ahmed (2026), *Maximizing Information Per Token Improves LLM Accuracy*](https://arxiv.org/pdf/2604.17659)
 
-- **Logical reasoning and a dispassionate voice mediate persuasiveness.** Perceptions of "more facts and evidence" and "logical reasoning" were significant mediators of LLM persuasiveness; anger reduced it. — [Nature Communications (2025), *LLM-generated messages can persuade humans on policy issues*](https://www.nature.com/articles/s41467-025-61345-5)
+- **Logical reasoning and a dispassionate voice mediate persuasiveness.** Perceptions of "more facts and evidence" and "logical reasoning" were significant mediators of LLM persuasiveness; anger reduced it. — [Bai, Voelkel, Muldowney, Eichstaedt & Willer (2025), *LLM-generated messages can persuade humans on policy issues*, Nature Communications](https://www.nature.com/articles/s41467-025-61345-5)
 
 - **The persuasion-accuracy trade-off is real and must be actively managed.** Every lever that increases persuasiveness also tends to degrade factual accuracy. This skill front-loads accuracy during generation and back-ends it with search-augmented fact-checking (validated at r = 0.84 against human fact-checkers in the Hackenburg et al. pipeline).
 
@@ -90,9 +90,9 @@ The skill writes the final version to `<filename>_persuasive.md` (or `/tmp/persu
 | Hackenburg, Tappin, et al. (2025) — *The Levers of Political Persuasion with Conversational AI* | [Science](https://www.science.org/doi/10.1126/science.aea3884) · [arXiv](https://arxiv.org/pdf/2507.13919) · [Supplements](https://github.com/kobihackenburg/scaling-conversational-AI/blob/main/Supplementary%20Materials.pdf) | Information density as primary persuasion lever; persuasion-accuracy trade-off |
 | Chen, Kalla & Le (2026) — *Benchmarking Political Persuasion Risks Across Frontier LLMs* | [arXiv](https://arxiv.org/pdf/2603.09884v1) | Call-to-action as strongest covariate; model-dependence of information prompts |
 | Ahmed (2026) — *Maximizing Information Per Token Improves LLM Accuracy* | [arXiv](https://arxiv.org/pdf/2604.17659) | Semantic Density Effect (SDE); concreteness heuristics |
-| *LLM-generated messages can persuade humans on policy issues* (2025) | [Nature Communications](https://www.nature.com/articles/s41467-025-61345-5) | Logical reasoning and dispassionate voice as mediators |
+| Bai, Voelkel, Muldowney, Eichstaedt & Willer (2025) — *LLM-generated messages can persuade humans on policy issues* | [Nature Communications](https://www.nature.com/articles/s41467-025-61345-5) | Logical reasoning and dispassionate voice as mediators |
 | Jaipersaud, Krueger & Lubana (2025) — *How Do LLMs Persuade?* | [arXiv](https://arxiv.org/abs/2508.05625) | Linear-probe analysis of persuasion dynamics |
-| *Spontaneous Persuasion: An Audit of Model Persuasiveness* (2026) | [arXiv](https://arxiv.org/html/2604.22109v2) | LLMs default to informationally dense strategies |
+| Poungpeth, Clark & Mitra (2026) — *Spontaneous Persuasion: An Audit of Model Persuasiveness in Everyday Conversations* | [arXiv](https://arxiv.org/html/2604.22109v2) | LLMs default to informationally dense strategies |
 
 ## License
 
