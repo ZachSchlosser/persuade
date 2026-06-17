@@ -52,7 +52,7 @@ Then restart Claude Code (or run `/reload`) so the skill is discovered.
 
 ### Requirements
 
-- [Claude Code](https://docs.claude.com/en/docs/claude-code) CLI
+- Claude Desktop or [Claude Code](https://docs.claude.com/en/docs/claude-code) CLI
 - **Web search** access (built into Claude Code)
 - **[Consensus MCP server](https://github.com/ConsensusApp/consensus-mcp)** configured in your Claude Code MCP settings — used for research-claim fact-checking. The skill also falls back to web search if Consensus is unavailable.
 
