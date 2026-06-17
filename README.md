@@ -1,6 +1,6 @@
 # persuade
 
-A [Claude Code](https://docs.claude.com/en/docs/claude-code) skill that enhances any text's persuasiveness while preserving its structure, citations, voice, and length — and keeping every claim factually accurate.
+A Claude skill that enhances any text's persuasiveness while preserving its structure, citations, voice, and length — and keeping every claim factually accurate.
 
 ## What it does
 
