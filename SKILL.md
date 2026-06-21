@@ -30,7 +30,7 @@ These constraints apply to every step. They are non-negotiable.
 
 3. **Within a section, light paragraph reorganization is permitted** — you may reorder paragraphs inside an existing section, add new sentences, or tighten sentences in place. You may not move content *between* sections or delete a paragraph's substance.
 
-4. **Length floor: the output must be at least as long as the input.** Never shorten. If anything, the enhanced version may be slightly longer (added topic sentences, concrete framing, sharper transitions).
+4. **Length parity within ±5%.** The output should be approximately the same length as the input. Minor variance from in-place editing (a few words either way) is expected and fine. Substantial shortening (more than 5% below input length) indicates content loss and is a preservation violation; substantial lengthening (more than 5% above) suggests unnecessary padding.
 
 5. **Preserve author voice and register.** If the input is formal academic prose, the output stays formal academic. If it's conversational, it stays conversational. Do not "polish" the author's voice into a different register.
 
@@ -53,46 +53,33 @@ Produce **three independent enhancements** (A, B, C) of `SOURCE`. Each variant m
 1. Start from `SOURCE` and apply the **Enhancement Principles** (below) surgically — modify sentences in place, add strengthening sentences, lightly reorder paragraphs within their section.
 2. Obey the **Preservation Contract** in full.
 3. Differ from the other two variants only in *which enhancements they apply and how* — not in base content, structure, or voice. All three should be recognizably versions of `SOURCE`, not three different essays.
-4. Never shorten the text.
+4. Keep length within ±5% of the source (see Preservation Contract item 4).
 
 Write each variant to a working file:
 - `/tmp/persuade_A.md`
 - `/tmp/persuade_B.md`
 - `/tmp/persuade_C.md`
 
-### Step 3 — Rank-order the three candidates
+### Step 3 — Score the three candidates and pick a winner
 
-**HARD GATE: You may not proceed to Step 4 until `/tmp/persuade_scorecard.md` exists and contains both completed tables with every cell filled.** Writing a prose summary instead of creating and reading back the file is a failure to follow this step. The file is the checkpoint — the model must literally write it, read it, and confirm it before advancing.
+Score each variant quantitatively. No file checkpoints, no table-writing machinery — just score, sum, and declare.
 
-**3a. Write the preservation check table to `/tmp/persuade_scorecard.md`.** Use the Write tool. For each variant (A, B, C), check every Preservation Contract item, fill every cell with PASS or FAIL plus a one-line note, and mark the verdict. Any FAIL = DISQUALIFIED. The table must look like this (every cell filled):
+**3a. Preservation check.** For each variant, verify the Preservation Contract items. Mark PASS or FAIL on each. A variant with any FAIL on citations, sections, voice, or original-claims is DISQUALIFIED and receives no further scoring. Length failures (outside ±5%) get penalized in the scoring step rather than disqualified, since they may reflect legitimate editing.
 
-| Variant | Citations verbatim? | Sections intact? | Length ≥ input? | Voice preserved? | Original claims kept? | Verdict |
-|---|---|---|---|---|---|---|
-| A | PASS — [note] | PASS — [note] | PASS — [note] | PASS — [note] | PASS — [note] | PASS / DISQUALIFIED |
-| B | [fill] | [fill] | [fill] | [fill] | [fill] | PASS / DISQUALIFIED |
-| C | [fill] | [fill] | [fill] | [fill] | [fill] | PASS / DISQUALIFIED |
+**3b. Quantitative scoring.** For each non-disqualified variant, assign a score from **1–10** on each dimension (10 = best). Use the full range — don't cluster all scores at 7-8. The dimensions:
 
-**3b. Append the rubric scorecard to the same file.** Use the Edit tool to append. For each non-disqualified variant, rank 1st/2nd/3rd on every dimension. Every cell must contain a rank (1, 2, or 3). No empty cells, no ties, no "n/a":
+| Dimension | What 10 looks like |
+|---|---|
+| **Persuasive sharpening** | Hedging consistently tightened into confident framing; topic sentences sharpened; abstractions made concrete throughout. |
+| **Information density** | Every substantive paragraph carries concrete, verifiable claims; sparse paragraphs received Tier 2 additions where appropriate. |
+| **Call-to-action** | Ends with a specific, concrete, time-bound next step for the reader (added, not replacing existing conclusion). |
+| **Logical flow** | Transitions explicitly link paragraphs; within-section ordering builds the argument; the chain claim→evidence→implication is clear. |
+| **Factual discipline** | No fabricated claims; Tier 2 additions are verifiable; scholarly hedging preserved where uncertainty is genuine. |
+| **Preservation fidelity** | All citations, sections, voice, and original claims intact; length within ±5%; reads as the author's text enhanced, not rewritten. |
 
-| Dimension | A | B | C |
-|---|---|---|---|
-| Persuasive sharpening | [1/2/3] | [1/2/3] | [1/2/3] |
-| Call-to-action strength | [1/2/3] | [1/2/3] | [1/2/3] |
-| Logical flow | [1/2/3] | [1/2/3] | [1/2/3] |
-| Factual discipline | [1/2/3] | [1/2/3] | [1/2/3] |
-| Preservation fidelity | [1/2/3] | [1/2/3] | [1/2/3] |
+**3c. Sum and declare.** Sum each variant's six scores (max 60). The highest total wins. On a tie, preservation fidelity is the tiebreaker.
 
-**3c. Read the file back and verify.** Use the Read tool on `/tmp/persuade_scorecard.md`. Before proceeding, confirm:
-- Both tables are present in the file
-- Every cell is filled (no blanks, no placeholder text)
-- At least one variant is not DISQUALIFIED
-- The rubric table contains only ranks (1, 2, or 3) in each cell
-
-If any check fails, rewrite the file with the missing content and re-read before proceeding.
-
-**3d. Aggregate and record the winner.** Count 1st-place finishes per non-disqualified variant across the five rubric dimensions. The variant with the most 1st-place finishes wins. Tiebreaker: highest preservation fidelity rank, then highest factual discipline rank.
-
-**3e. Note the winner by name.** Append a one-line winner declaration to the scorecard file: "WINNER: Variant [X] — [N] first-place finishes." You may now proceed to Step 4.
+**3d. Record the scores.** Note each variant's per-dimension scores and total. These numbers appear in the final report (Step 9).
 
 ### Step 4 — Extract and fact-check the winner's NEW claims
 
@@ -124,7 +111,7 @@ Run one confirmation pass over the corrected winner. If replacements introduced 
 Before outputting, explicitly verify each item in the **Preservation Contract**:
 - All original citations present and in original format? ✓/✗
 - All sections present, in original order, with original headers? ✓/✗
-- Output length ≥ input length? ✓/✗
+- Output length within ±5% of input? ✓/✗
 - Author voice preserved? ✓/✗
 - No original claims or examples removed? ✓/✗
 
@@ -141,8 +128,9 @@ Write the final, verified version to:
 Print to the user:
 1. **The final version** (full text).
 2. A brief **change report**:
-   - The **contents of `/tmp/persuade_scorecard.md`** (both tables, reproduced in full). If the report does not contain both filled tables, the skill failed Step 3.
-   - Which variant (A/B/C) won and the 1st-place count that decided it.
+   - **Quantitative scores per variant.** For each variant (A/B/C), list the 1–10 score on each dimension (Persuasive sharpening, Information density, Call-to-action, Logical flow, Factual discipline, Preservation fidelity) and the total out of 60.
+   - **Winner declaration:** which variant won and its total score.
+   - **Source density classification** (Sparse/Moderate/Dense) from Step 2 and which enhancement tiers were applied.
    - Number of NEW claims fact-checked, how many accurate vs. replaced.
    - Each replacement made (original claim → replacement → source).
    - Confirmation that all Preservation Contract checks passed (Step 7).
@@ -201,14 +189,15 @@ Record this classification. It governs how aggressively principles 3 and 4 (belo
 
 ## Scoring Rubric (dimension definitions for Step 3)
 
-Step 3 requires you to fill the scorecard tables. These are the definitions for each dimension. Rank 1st/2nd/3rd — no numeric scores.
+Step 3 requires quantitative scoring (1–10 per dimension). Use the full range — avoid clustering all variants at 7-8. The dimensions:
 
-| Dimension | What to look for |
+| Dimension | What 10 looks like |
 |---|---|
-| **Persuasive sharpening** | Did hedging become confidence? Did topic sentences sharpen? Did abstractions become concrete? |
-| **Call-to-action** | Did the ending gain a concrete next step (added, not replacing)? |
-| **Logical flow** | Are transitions and within-section ordering stronger? |
-| **Factual discipline** | Did enhancements avoid fabricating or over-reaching? |
-| **Preservation fidelity** | How closely does the variant match the source's citations, sections, length, voice, and original claims? (Higher = closer to source.) |
+| **Persuasive sharpening** | Hedging consistently tightened into confident framing; topic sentences sharpened; abstractions made concrete throughout. |
+| **Information density** | Every substantive paragraph carries concrete, verifiable claims; sparse paragraphs received Tier 2 additions where appropriate. |
+| **Call-to-action** | Ends with a specific, concrete, time-bound next step for the reader (added, not replacing existing conclusion). |
+| **Logical flow** | Transitions explicitly link paragraphs; within-section ordering builds the argument; the chain claim→evidence→implication is clear. |
+| **Factual discipline** | No fabricated claims; Tier 2 additions are verifiable; scholarly hedging preserved where uncertainty is genuine. |
+| **Preservation fidelity** | All citations, sections, voice, and original claims intact; length within ±5%; reads as the author's text enhanced, not rewritten. |
 
-**Aggregate rule:** The variant with the most 1st-place finishes across dimensions wins. On a tie, the tiebreaker is: highest preservation fidelity, then highest factual discipline.
+**Aggregate rule:** Sum the six scores per variant (max 60). Highest total wins. Tiebreaker: highest preservation fidelity score.
